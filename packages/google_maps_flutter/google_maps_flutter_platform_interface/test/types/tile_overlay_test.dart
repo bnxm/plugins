@@ -7,6 +7,13 @@ import 'dart:ui' show hashValues;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
 
+class TestTileProvider implements TileProvider {
+  const TestTileProvider();
+
+  @override
+  Future<Tile> getTile(int x, int y, int? zoom) async => TileProvider.noTile;
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -48,13 +55,28 @@ void main() {
 
     test('invalid transparency throws', () async {
       expect(
-          () => TileOverlay(
-              tileOverlayId: const TileOverlayId('id1'), transparency: -0.1),
+          () =>
+              TileOverlay(tileOverlayId: const TileOverlayId('id1'), transparency: -0.1),
           throwsAssertionError);
       expect(
-          () => TileOverlay(
-              tileOverlayId: const TileOverlayId('id2'), transparency: 1.2),
+          () => TileOverlay(tileOverlayId: const TileOverlayId('id2'), transparency: 1.2),
           throwsAssertionError);
+    });
+
+    test('clone', () async {
+      const TileOverlay tileOverlay1 = TileOverlay(
+        tileOverlayId: TileOverlayId('id1'),
+        fadeIn: false,
+        tileProvider: TestTileProvider(),
+        transparency: 0.1,
+        zIndex: 1,
+        visible: false,
+        tileSize: 128,
+      );
+
+      final TileOverlay tileOverlay2 = tileOverlay1.clone();
+
+      expect(tileOverlay1, equals(tileOverlay2));
     });
 
     test('equality', () async {
