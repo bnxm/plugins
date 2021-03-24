@@ -1,6 +1,6 @@
 ## 2.0.3
 
-* Fixed `TileOverlays` not showing on map ([#77500](https://github.com/flutter/flutter/issues/77500))
+* Fixed `TileOverlays` not being displayed on map ([#77500](https://github.com/flutter/flutter/issues/77500))
 
 ## 2.0.2
 
