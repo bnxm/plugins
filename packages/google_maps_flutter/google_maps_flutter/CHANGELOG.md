@@ -1,3 +1,7 @@
+## 2.0.2
+
+* Fixed `TileOverlays` not showing on map ([#77500](https://github.com/flutter/flutter/issues/77500))
+
 ## 2.0.1
 
 * Update platform_plugin_interface version requirement.

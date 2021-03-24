@@ -1,3 +1,7 @@
+## 2.0.3
+
+* Fixed `TileOverlays` not showing on map ([#77500](https://github.com/flutter/flutter/issues/77500))
+
 ## 2.0.2
 
 * Mark constructors for CameraUpdate, CircleId, MapsObjectId, MarkerId, PolygonId, PolylineId and TileOverlayId as const
