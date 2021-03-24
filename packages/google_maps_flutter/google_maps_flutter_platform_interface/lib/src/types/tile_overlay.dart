@@ -147,6 +147,6 @@ class TileOverlay implements MapsObject {
   }
 
   @override
-  int get hashCode => hashValues(
-      tileOverlayId, fadeIn, tileProvider, transparency, zIndex, visible, tileSize);
+  int get hashCode => hashValues(tileOverlayId, fadeIn, tileProvider,
+      transparency, zIndex, visible, tileSize);
 }
